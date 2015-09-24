@@ -1,0 +1,106 @@
+{
+  "name": "sform-es6-jspm",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/gulp serve",
+    "postinstall": "./node_modules/.bin/jspm install"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "pre-push": [
+    "test-build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [
+    "ES6",
+    "jspm",
+    "gulp"
+  ],
+  "author": "",
+  "license": "MIT",
+  "jspm": {
+    "configFile": "jspm.config.js",
+    "dependencies": {
+      "fetch-polyfill": "npm:fetch-polyfill@^0.8.1",
+      "text": "github:systemjs/plugin-text@^0.0.2"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "devDependencies": {
+    "babel": "^5.8.12",
+    "browser-sync": "^2.7.10",
+    "colors": "^1.1.2",
+    "connect-modrewrite": "^0.8.1",
+    "del": "^2.0.1",
+    "forever": "^0.15.1",
+    "git-rev-sync": "^1.3.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-bytediff": "^1.0.0",
+    "gulp-cache": "^0.3.0",
+    "gulp-changed": "^1.2.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-filter": "^3.0.0",
+    "gulp-footer": "^1.0.5",
+    "gulp-header": "^1.2.2",
+    "gulp-htmlhint": "^0.3.0",
+    "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-inject": "^2.2.0",
+    "gulp-jshint": "^1.11.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-rev": "^6.0.0",
+    "gulp-size": "^2.0.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-usemin": "^0.3.11",
+    "gulp-util": "^3.0.5",
+    "gulp-less": "^3.0.3",
+    "jasmine-core": "^2.3.4",
+    "jasmine-spec-reporter": "^2.4.0",
+    "jshint-stylish": "^2.0.0",
+    "jspm": "^0.16.6",
+    "karma": "^0.13.3",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-html2js-preprocessor": "^0.1.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-jspm": "^2.0.1-beta.1",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-spec-reporter": "0.0.20",
+    "minimist": "^1.1.3",
+    "moment": "^2.10.6",
+    "phantomjs": "^1.9.17",
+    "phantomjs-polyfill": "0.0.1",
+    "pre-commit": "^1.1.1",
+    "pre-push": "^0.1.1",
+    "protractor": "^2.1.0",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.2",
+    "systemjs-builder": "^0.14.3"
+  },
+  "config": {
+    "port": 9000,
+    "isAngular": false
+  },
+  "engines": {
+    "node": ">=0.12.x",
+    "npm": ">=2.0.0"
+  }
+}
