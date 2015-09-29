@@ -1,0 +1,28 @@
+<template id="s-forms-workspace-tpl">
+    <h4>Form</h4>
+    <section>
+        <header></header>
+        <div class="elements">
+            <div class="element-placeholder">
+                <div><i class="fa fa-plus"></i></div>
+            </div>
+        </div>
+        <footer></footer>
+    </section>
+</template>
+
+<template id="s-forms-field-element-tpl">
+    <div class="element element-{{type}}" data-type="{{type}}" data-cmd="select" data-args="{{sid}}">
+        <div class="element-body">{{element}}</div>
+        <div class="elements-actions">
+            <div class="elements-action-up" data-cmd="up" data-args="{{sid}}"><i class="fa fa-arrow-up"></i></div>
+            <div class="elements-action-down" data-cmd="down" data-args="{{sid}}"><i class="fa fa-arrow-down"></i></div>
+            <div class="elements-action-remove" data-cmd="remove" data-args="{{sid}}"><i class="fa fa-remove"></i></div>
+        </div>
+    </div>
+</template>
+
+<template id="s-forms-field-text-tpl">
+    <label>{{label}}</label>
+    <input class="form-control" type="text" />
+</template>

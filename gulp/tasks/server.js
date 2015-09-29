@@ -5,9 +5,8 @@ import util from 'gulp-util';
 import modRewrite  from 'connect-modrewrite';
 import browserSync from 'browser-sync';
 
-import {COLORS,LOG,PORT,OPEN,ENV} from '../utils.js';
-
-import path from '../paths';
+import {COLORS,LOG,PORT,OPEN,ENV} from '../const';
+import paths from '../paths';
 
 function infos(env) {
   LOG(COLORS.yellow('[INFOS] call `gulp serve --env ' + env + ' --port 9002` (for example) to launch on another port'));
@@ -97,40 +96,14 @@ function startBrowserSync(env, baseDir, options = {}) {
   browserSync(config);
 }
 
-//=============================================
-//                 TASKS
-//=============================================
-
-/**
- * The 'serve' task. run `gulp serve --env dev/dist/test`
- *
- * Pass the env dev/dist/test via the --env flag
- *
- * - dev: runs a dev server with livereload/watch
- * - test: runs a test server with livereload/watch (over the test also)
- * - dist: serves the `build/dist` folder
- */
-var gulpServeDependencyTasks;
-switch(ENV){
-  case 'dist':
-    gulpServeDependencyTasks = [];
-    break;
-  case 'test':
-  case 'dev':
-    gulpServeDependencyTasks = ['less', 'watch'];
-    break;
-}
-gulp.task('serve', gulpServeDependencyTasks, () => {
+gulp.task('serve', ['less-dev', 'es6', 'watch'], () => {
   infos(ENV);
   switch(ENV){
-    case 'dist':
-      startBrowserSync('dist', ['./build/dist'], {port: PORT, open: OPEN});
+    case 'dev':
+      startBrowserSync('dist', [paths.dev.root, 'src', './'], {port: PORT, open: OPEN});
       break;
     case 'test':
-      startBrowserSync('test', ['.tmp', 'src', 'jspm_packages', './'], {port: PORT, open: OPEN});
-      break;
-    case 'dev':
-      startBrowserSync('dev', ['.tmp', 'src', 'jspm_packages', './'], {port: PORT, open: OPEN});
+      startBrowserSync('test', ['src', 'jspm_packages', './'], {port: PORT, open: OPEN});
       break;
   }
 });

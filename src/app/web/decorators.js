@@ -1,39 +1,29 @@
-import {format, findTempates, processName, createNode} from './utils';
 import {registerComponent} from './main';
 
 export class Namespace{
-    constructor(prefix, html, sufix='-tpl'){
+    constructor(prefix, html, sufix='tpl'){
         this._prefix = prefix;
         this._html = html;
         this._tpls = {};
 
-        var items = findTempates(html);
-        items.forEach(([id, node, html]) => {
+        var templates = findTempates(html);
+        templates.forEach(template => {
+            var id = template.id;
             var name = processName(prefix, id, sufix);
-            this._tpls[name] = {
-                node:node,
-                html: html
-            };
+            this._tpls[name] = template;
         });
-        console.log(Object.keys(this._tpls));
+    }
+    template(name){
+        return this._tpls[name];
     }
     node(name, data=null){
-        if(data){
-            return createNode(this.format(name, data));
-        }
-        return this._tpls[name].node;
+        return createNode(this.format(name, data));
     }
     format(name, data){
         return format(this.html(name), data);
     }
     html(name){
-        return this._tpls[name].html;
-    }
-    tpl(name){
-        var self = this;
-        return function(data){
-            return self.format(name, data);
-        };
+        return this._tpls[name].innerHTML;
     }
 
     Component(name){
@@ -43,11 +33,11 @@ export class Namespace{
         }
     }
 
-    Template(name){
-        var id = this.prefix(name);
-        var html = this.html(name);
+    Template(name='root', shadow=false){
+        var template = this.template(name);
         return function Template(target){
-            target.$tpl = html;
+            target.$template = template;
+            target.$shadow = shadow;
         }
     }
 
@@ -59,12 +49,40 @@ export class Namespace{
 export function Component(selector){
     return function Component(target){
         registerComponent(selector, target);
-
     };
 }
 
-export function Template(html){
+export function Template(html, shadow=false){
     return function(target){
-        target.$tpl = html;
+        target.$template = html;
+        target.$shadow = shadow;
     };
+}
+
+function format(txt, data){
+    return txt.trim().replace(/\{\{(.+?)\}\}/g, function(_, name){
+        return data[name] || name;
+    });
+}
+
+function processName(prefix, name, sufix){
+    if(name.startsWith(prefix)){
+        name = name.substr(prefix.length);
+    }
+    if(name.endsWith(sufix)){
+        name = name.substr(0, name.length-sufix.length);
+    }
+    return name.replace(/^-+|-+$/g, '');
+}
+
+function createNode(html, data){
+    var div = document.createElement('div');
+    div.innerHTML = format(html, data).trim();
+    return div.firstChild;
+
+}
+function findTempates(html){
+    var div = document.createElement('div');
+    div.innerHTML = html.trim();
+    return Array.from(div.querySelectorAll('template'));
 }

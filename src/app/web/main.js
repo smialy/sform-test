@@ -1,11 +1,10 @@
 var components = {};
 
-function registerComponent(name, Component){
+export function registerComponent(name, Component){
     extendsComponents(name, Component);
 }
 
 function extendsComponents(selector, Component){
-    console.log('registerComponent', selector, Component);
     var defaults = {
         create:function(){},
         bind:function(){},
@@ -13,17 +12,18 @@ function extendsComponents(selector, Component){
         attrs:function(){},
         createdCallback: function() {
             console.log('createdCallback');
+            if(Component.$shadow){
+                this.createShadowRoot();
+            }
             this.create();
         },
         attachedCallback: function() {
             console.log('attachedCallback');
-            var tpl = Component.$tpl || null;
-            if(tpl){
-                if(typeof tpl === 'string'){
-                    this.innerHTML = tpl;
-                }else{
-                    this.appendChild(clone);
-                }
+            var template = Component.$template || null;
+            if(template){
+                var content = template.content ? template.content : getFragmentNode(template);
+                var root = Component.$shadow ? this.shadowRoot : this;
+                root.appendChild(document.importNode(content, true));
             }
             this.bind();
         },
@@ -41,7 +41,15 @@ function extendsComponents(selector, Component){
             proto[name] = defaults[name];
         }
     });
-    console.log('registerElement', selector, Component.prototype);
+    console.log('registerElement', selector);
     document.registerElement(selector, Component);
 
+}
+
+function getFragmentNode(node){
+    var fragment = document.createDocumentFragment();
+    while (child = node.firstChild) {
+        fragment.appendChild(child);
+    }
+    return fragment;
 }

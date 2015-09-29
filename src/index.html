@@ -3,30 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Forms</title>
-  <link rel="stylesheet" href="styles/main.css"  media="all"/>
 
-  <script src="jspm_packages/system.js"></script>
-  <script src="jspm.config.js"></script>
+  <!-- build:css styles/build.css -->
+  <link rel="stylesheet" href="styles/reset.css"  media="all"/>
+  <link rel="stylesheet" href="styles/font-awesome.css"  media="all"/>
+  <link rel="stylesheet" href="styles/main.css"  media="all"/>
+  <!-- endbuild -->
 
 </head>
-<body>
+    <body>
 
-<!-- build:js(.) scripts/app.bootstrap.build.js -->
-<!-- inject:js -->
-<!-- endinject -->
-<!-- endbuild -->
-<!-- build:remove -->
-
-<!-- inject-browser-sync -->
-<script>
-  System.import('app/bootstrap.js').catch(console.error.bind(console));
-</script>
-
-<!-- endbuild -->
-<!-- inject:analytics -->
-<!-- endinject -->
-
-<s-form-builder></s-form-builder>
-
+    <!-- build:js scripts/build.js -->
+    <script src="jspm_packages/system.js"></script>
+    <script src="jspm.config.js"></script>
+    <script>
+        System.import('app/bootstrap.js').catch(console.error.bind(console));
+    </script>
+    <!-- inject-browser-sync -->
+    <!-- endbuild -->
 </body>
 </html>

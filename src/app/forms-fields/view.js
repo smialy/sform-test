@@ -1,23 +1,17 @@
 import {Namespace} from '../web/decorators';
-import MAIN from './app.html!text';
+import TEMPLATES from './templates.html!text';
 
-var ns = new Namespace('s-form-designer', MAIN);
-
-@ns.Component()
-class Form extends HTMLElement{
-    bind(){
-        console.log(this);
-    }
-}
+var ns = new Namespace('s-forms', TEMPLATES);
 
 @ns.Component('fields')
 @ns.Template('fields')
-class FormFields extends HTMLElement{
+class FormFields extends HTMLDivElement{
     bind(){
         this.addEventListener('click', e => {
             var cmd = e.target.dataset.cmd;
             var data = e.target.dataset.args;
             if(cmd){
+                console.log(cmd);
                 this.dispatchEvent(new CustomEvent(cmd, {
                     detail: {
                         data:data
@@ -35,14 +29,4 @@ class FormFields extends HTMLElement{
             $section.appendChild(node);
         });
     }
-}
-
-@ns.Component('space')
-@ns.Template('space')
-class FormSpace extends HTMLElement{
-}
-
-@ns.Component('settings')
-@ns.Template('settings')
-class FormSettings extends HTMLElement{
 }

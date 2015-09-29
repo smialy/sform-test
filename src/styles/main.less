@@ -4,6 +4,9 @@ body, html{
 body{
     background: #fff;
 }
+* {
+    box-sizing: border-box;
+}
 .btn{
 
    border-radius: 2px;
@@ -33,15 +36,15 @@ input{
     background: #fff;
     border: 1px solid #ccc;
     border-radius: 2px;
-    color: #555;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #888;
     display: block;
     font-size: 14px;
-    line-height: 1.42857;
-    padding: 2px;
+    height: 34px;
+    padding: 4px 8px;
     width: 100%;
 }
-
-s-form-designer{
+s-forms-app{
     height:100%;
 
     display: flex;
@@ -68,7 +71,7 @@ s-form-designer{
         }
     }
 }
-s-form-designer-fields{
+s-forms-fields{
     flex:0 1 300px;
     background: #eee;
     border-right: solid 1px #ccc;
@@ -77,16 +80,63 @@ s-form-designer-fields{
         margin:0 -4px;
 
         .btn{
-            width:146px;
+            width:135px;
             margin:3px 4px;
         }
     }
 }
-s-form-designer-space{
+s-forms-workspace{
     flex:1 0 auto;
     align-self: stretch;
+
+    .element-placeholder{
+        padding:8px;
+
+        &:hover div{
+            background:#eee;
+        }
+
+        div{
+            border:dotted 1px #ddd;
+            padding:8px;
+            text-align: center;
+        }
+    }
+    .element{
+        position: relative;
+        margin-bottom: 16px;
+
+        label{
+            display: inline-block;
+            font-weight: 700;
+            max-width: 100%;
+            margin-bottom: 5px;
+        }
+
+
+    }
+    .element-text{
+
+    }
+    .elements-actions{
+        display: none;
+        position: absolute;
+        top:0;
+        right: 0;
+        border:solid 1px #ddd;
+
+        div{
+            float:left;
+            padding:8px;
+            background: #fff;
+        }
+    }
+    .element:hover .elements-actions{
+        display:block;
+    }
+
 }
-s-form-designer-settings{
+s-forms-settings{
     flex:0 1 300px;
     background: #eee;
     border-right: solid 1px #ccc;

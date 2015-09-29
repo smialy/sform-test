@@ -2,73 +2,36 @@
 
 import path from 'path';
 
-const root = path.dirname(__dirname);//needed so that imports could co-exist with requires (on some edge cases)
+const root = path.dirname(__dirname);
 
 const paths = {
   gulpfile: `${root}/gulpfile.js`,
-  /**
-   * This is a collection of file patterns that refer to our app code (the
-   * stuff in `src/`). These file paths are used in the configuration of
-   * build tasks.
-   *
-   * - 'styles'       contains all project css styles
-   * - 'images'       contains all project images
-   * - 'fonts'        contains all project fonts
-   * - 'scripts'      contains all project javascript except config-env.js and unit test files
-   * - 'html'         contains main html files
-   * - 'templates'    contains all project html templates
-   */
+  jspmConfig: `${root}/jspm.config.js`,
   app: {
-    basePath: `${root}/src/`,
+    root: `${root}/src/`,
+    scripts: [`${root}/src/app/**/*.js`],
     styles: `${root}/src/styles/**/*.less`,
     fonts: [
-      `${root}/src/fonts/**/*.{eot,svg,ttf,woff}`,
-      `${root}/jspm_packages/**/*.{eot,svg,ttf,woff}`,
+      `${root}/src/fonts/**/*.{eot,svg,ttf,woff,woff2}`,
+      `${root}/jspm_packages/**/*.{eot,svg,ttf,woff,woff2}`,
     ],
-    images: `${root}/src/images/**/*.{png,gif,jpg,jpeg}`,
-    scripts: [`${root}/src/app/**/*.js`],
+    images: `${root}/src/imgs/**/*.{png,gif,jpg,jpeg}`,
     html: `${root}/src/index.html`,
     templates: `${root}/src/app/**/*.html`
   },
-  config: {
-    karma: `${root}/karma.conf.js`,
-    e2e: `${root}/protractor.config.js`,
-    jspm: `${root}/jspm.config.js`
-  },
-  /**
-   * The 'tmp' folder is where our html templates are compiled to JavaScript during
-   * the build process and then they are concatenating with all other js files and
-   * copy to 'dist' folder.
-   */
-  tmp: {
-    basePath: `${root}/.tmp/`,
-    styles: `${root}/.tmp/styles/`,
-    scripts: `${root}/.tmp/scripts/`,
-    config: {
-      basePath: `${root}/.tmp/config/`,
-      jspm: `${root}/.tmp/config/jspm.config.js`
-    }
+  dev: {
+      root: `${root}/.dev/`,
+      scripts: `${root}/.dev/app/`,
+      styles: `${root}/.dev/styles/`
   },
   build: {
-    basePath: `${root}/build/`,
-    dist: {
-      basePath: `${root}/build/dist/`,
-      fonts: `${root}/build/dist/fonts/`,
-      images: `${root}/build/dist/images/`,
-      styles: `${root}/build/dist/styles/`,
-      scripts: `${root}/build/dist/scripts/`,
-      docs: `${root}/build/dist/docs/`
-    },
+    root: `${root}/build/`,
+    script:`${root}/build/scripts/build.js`,
+    scripts: `${root}/build/scripts/`,
+    fonts: `${root}/build/fonts/`,
+    images: `${root}/build/images/`,
+    styles: `${root}/build/styles/`,
     docs: `${root}/build/docs/`
-  },
-  test: {
-    basePath: `${root}/test/`,
-    config: {
-    },
-    unit: `${root}/test/unit/**/*.js`,
-    fixtures: `${root}/test/fixtures/**/*.html`,
-    e2e: `${root}/test/e2e/**/*.js`,
-    stubs: `${root}/test/stubs/**/*.js`
   }
 };
 

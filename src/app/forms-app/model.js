@@ -196,6 +196,9 @@ var factory = Object.freeze({
 export function fields(){
     return factory;
 }
+export function create(type, name='', params={}){
+    return new factory[type]()
+}
 
 export {
     TextField,
