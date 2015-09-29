@@ -96,7 +96,7 @@ function startBrowserSync(env, baseDir, options = {}) {
   browserSync(config);
 }
 
-gulp.task('serve', ['less-dev', 'es6', 'watch'], () => {
+gulp.task('serve', ['less', 'es6', 'watch'], () => {
   infos(ENV);
   switch(ENV){
     case 'dev':
