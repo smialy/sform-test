@@ -11,17 +11,11 @@ import flatten from 'gulp-flatten';
 
 import paths from '../paths';
 
-gulp.task('less', () => {
-  return gulp.src(paths.app.styles)
-    .pipe(less())
-    .pipe(concat('build.css'))
-    .pipe(gulp.dest(paths.build.styles))
-});
 
-gulp.task('less-dev', () => {
-  return gulp.src(paths.app.styles)
+gulp.task('less', () => {
+  return gulp.src(paths.app.less)
     .pipe(less())
-    .pipe(gulp.dest(paths.dev.styles))
+    .pipe(gulp.dest(paths.app.styles))
     .pipe(filter('**/*.css')) // Filtering stream to only css files
     .pipe(browserSync.reload({stream: true}));
 });

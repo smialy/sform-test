@@ -10,7 +10,8 @@ const paths = {
   app: {
     root: `${root}/src/`,
     scripts: [`${root}/src/app/**/*.js`],
-    styles: `${root}/src/styles/**/*.less`,
+    less: `${root}/src/styles/less/**/*.less`,
+    styles: `${root}/src/styles/`,
     fonts: [
       `${root}/src/fonts/**/*.{eot,svg,ttf,woff,woff2}`,
       `${root}/jspm_packages/**/*.{eot,svg,ttf,woff,woff2}`,

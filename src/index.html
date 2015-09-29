@@ -13,7 +13,11 @@
 </head>
     <body>
 
-    <!-- build:js scripts/build.js -->
+    <!-- build:js(.) scripts/build.js -->
+    <!-- inject:build:js --><!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- build:remove -->
     <script src="jspm_packages/system.js"></script>
     <script src="jspm.config.js"></script>
     <script>
