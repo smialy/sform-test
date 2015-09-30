@@ -2,23 +2,23 @@ import './view';
 import * as $model from './model';
 
 
+class Fields{
+
+}
+
 class Builder{
     constructor(view){
         this.fields = new Fields();
     }
 
     addField(type){
-        var field = $model.factory(type)
+        var field = $model.factory(type);
         this.fields.add(field);
         return field;
     }
 }
 
 class Settings{
-
-}
-
-class Fields{
 
 }
 

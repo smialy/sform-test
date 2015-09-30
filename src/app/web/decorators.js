@@ -30,7 +30,7 @@ export class Namespace{
         var selector = this.prefix(name);
         return function Component(target){
             registerComponent(selector, target);
-        }
+        };
     }
 
     Template(name='root', shadow=false){
@@ -38,7 +38,7 @@ export class Namespace{
         return function Template(target){
             target.$template = template;
             target.$shadow = shadow;
-        }
+        };
     }
 
     prefix(name){

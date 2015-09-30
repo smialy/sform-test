@@ -47,6 +47,7 @@ function extendsComponents(selector, Component){
 }
 
 function getFragmentNode(node){
+    var child;
     var fragment = document.createDocumentFragment();
     while (child = node.firstChild) {
         fragment.appendChild(child);

@@ -1,7 +1,7 @@
 var nextSID = (function(){
     var SID = 0;
     return function(){
-        return 's'+(SID+=1)
+        return 's'+(SID+=1);
     };
 })();
 
@@ -65,7 +65,7 @@ class Field{
 
     }
     on(callback, bind){
-      this._listeners.push([callback, bind|null]);
+      this._listeners.push([callback, bind||null]);
     }
     off(callback){
       this._listeners = this._listeners.filter(listener => listener !== callback );
@@ -142,7 +142,7 @@ class Composite extends Field{
       var index = this.childs.indexOf(field);
       if(index !== -1){
         this.childs.splice(index, 1);
-        if(field.parent == this){
+        if(field.parent === this){
           field.parent = null;
         }
         this.root.notify(REMOVE_CHILD, this, field);
@@ -181,16 +181,16 @@ var getName = (function(){
       }
       return 'type-'+(fields+=1);
     };
-});
+})();
 
 var factory = Object.freeze({
-    text:(name, params) => new TextField,
-    checkbox:(name, params) => new CheckboxField,
-    radio:(name, params) => new RadioField,
-    select:(name, params) => new SelectField,
-    label:(name, params) => new LabelField,
-    form:(name, params) => new Form,
-    section:(name, params) => new Section
+    text: (name, params) => new TextField,
+    checkbox: (name, params) => new CheckboxField,
+    radio: (name, params) => new RadioField,
+    select: (name, params) => new SelectField,
+    label: (name, params) => new LabelField,
+    form: (name, params) => new Form,
+    section: (name, params) => new Section
 });
 
 export function fields(){
