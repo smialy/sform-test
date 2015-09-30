@@ -18,12 +18,12 @@ gulp.task('jshint', () => {
 
 gulp.task('bundle', (cb) => {
   let Builder = require('systemjs-builder');
-  let builder = new Builder('./src');
-  let inputPath = 'app/bootstrap';
+  let builder = new Builder();
+  let inputPath = './src/app/bootstrap';
   let outputFile = paths.build.script;
-  let outputOptions = {runtime: false, sourceMaps: true, config: {sourceRoot: paths.app.scripts}};
+  let outputOptions = {runtime: true, sourceMaps: true, config: {sourceRoot: paths.app.scripts}};
 
-  builder.loadConfig(paths.jspmConfig, true, true).then(() => {
+  builder.loadConfig(paths.jspmConfig).then(() => {
       builder.buildStatic(inputPath, outputFile, outputOptions)
         .then(() => {
           return cb();

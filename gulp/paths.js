@@ -22,7 +22,7 @@ const paths = {
   },
   dev: {
       root: `${root}/.dev/`,
-      scripts: `${root}/.dev/app/`,
+      scripts: `${root}/.dev/src/app/`,
       styles: `${root}/.dev/styles/`
   },
   build: {
