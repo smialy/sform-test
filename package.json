@@ -57,6 +57,7 @@
     "gulp-usemin": "^0.3.14",
     "gulp-useref": "^1.3.0",
     "gulp-util": "^3.0.6",
+    "jshint-stylish": "^2.0.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.4",
     "systemjs-builder": "^0.14.7"
