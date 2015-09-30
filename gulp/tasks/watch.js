@@ -12,6 +12,6 @@ gulp.task('watch', () => {
 
     gulp.watch([paths.app.html, paths.app.templates], [browserSync.reload]);
 
-    gulp.watch([paths.app.scripts], ['jshint', 'dist', browserSync.reload]);
+    gulp.watch([paths.app.scripts], ['es6', browserSync.reload]);
 
 });

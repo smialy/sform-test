@@ -100,7 +100,7 @@ gulp.task('serve', ['less', 'es6', 'watch'], () => {
   infos(ENV);
   switch(ENV){
     case 'dev':
-      startBrowserSync('dist', [paths.dev.root, 'src', './'], {port: PORT, open: OPEN});
+      startBrowserSync('dev', [paths.dev.root, 'src', './'], {port: PORT, open: OPEN});
       break;
     case 'test':
       startBrowserSync('test', ['src', 'jspm_packages', './'], {port: PORT, open: OPEN});
