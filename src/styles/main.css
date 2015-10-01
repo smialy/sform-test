@@ -1,48 +1,102 @@
 body,
 html {
   height: 100%;
+  font: 500 16px/150% sans-serif;
 }
 body {
-  background: #fff;
+  background: #f2f2f2;
+}
+body,
+a {
+  color: #646464;
 }
 * {
   box-sizing: border-box;
 }
 .btn {
-  border-radius: 2px;
   cursor: pointer;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.42857;
-  margin-bottom: 0;
+  margin: 0;
   padding: 6px 12px;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  background: #fff;
-  border: solid 1px #ccc;
-  color: #333;
+  background: #2196F3;
+  color: #fff;
   text-decoration: none;
+  transition: all 280ms linear 0s;
+  border: none;
 }
 .btn:hover {
-  border: solid 1px #888;
+  background: #1976D2;
 }
 .btn:active,
 .btn:focus {
   outline: 0;
 }
-input {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-  color: #888;
-  display: block;
-  font-size: 14px;
-  height: 34px;
-  padding: 4px 8px;
+.form-group {
+  position: relative;
   width: 100%;
+  margin: 16px 0;
+}
+.form-group > .form-control {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+.form-group > .form-label {
+  color: #888;
+  position: absolute;
+  left: 4px;
+  right: 0px;
+  top: -8px;
+  pointer-events: none;
+  transition: all 150ms ease-out 0s;
+  font-size: 12px;
+}
+.form-group > input[type="text"].form-control,
+.form-group textarea.form-control {
+  border: solid 1px #eee;
+  border-width: 0px 0px 1px;
+  font: 400 15px/18px sans-serif;
+  padding: 12px 4px;
+  background: none;
+  width: 100%;
+  display: block;
+}
+.form-group > input[type="text"].form-control:focus,
+.form-group textarea.form-control:focus {
+  border-bottom: solid 1px #2196F3;
+}
+.form-group .checkbox,
+.form-group .radio {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.form-group .checkbox label,
+.form-group .radio label {
+  display: inline-block;
+  min-height: 20px;
+  padding-left: 25px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+.form-group .checkbox input,
+.form-group .radio input {
+  position: absolute;
+  margin: 4px 0px 0px -25px;
+  line-height: normal;
+  padding: 0px;
 }
 s-forms-app {
   height: 100%;
@@ -55,24 +109,27 @@ s-forms-app {
 }
 s-forms-app h4 {
   text-transform: uppercase;
-  border-bottom: solid 1px #ccc;
-  margin: 0 0 8px 0;
-  padding: 0 0 8px;
+  margin: 0 0 8px;
+  padding: 16px;
+  color: #fff;
+  background: #2196F3;
 }
 s-forms-app > * {
-  padding: 10px;
+  margin: 16px;
   align-self: stretch;
+  background: #fff;
+}
+s-forms-app > * section {
+  padding: 16px;
 }
 s-forms-fields {
   flex: 0 1 300px;
-  background: #eee;
-  border-right: solid 1px #ccc;
 }
 s-forms-fields section {
   margin: 0 -4px;
 }
 s-forms-fields section .btn {
-  width: 135px;
+  width: 130px;
   margin: 3px 4px;
 }
 s-forms-workspace {
@@ -92,31 +149,33 @@ s-forms-workspace .element-placeholder div {
 }
 s-forms-workspace .element {
   position: relative;
-  margin-bottom: 16px;
+  padding: 12px;
 }
-s-forms-workspace .element label {
-  display: inline-block;
-  font-weight: 700;
-  max-width: 100%;
-  margin-bottom: 5px;
+s-forms-workspace .element .form-group {
+  margin: 0;
 }
 s-forms-workspace .elements-actions {
   display: none;
   position: absolute;
   top: 0;
   right: 0;
-  border: solid 1px #ddd;
 }
 s-forms-workspace .elements-actions div {
   float: left;
-  padding: 8px;
+  line-height: 20px;
+  padding: 10px 12px;
   background: #fff;
+  border: solid 1px #ddd;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-left: -1px;
+}
+s-forms-workspace .element:hover {
+  background: #f5f5f5;
 }
 s-forms-workspace .element:hover .elements-actions {
   display: block;
 }
 s-forms-settings {
   flex: 0 1 300px;
-  background: #eee;
-  border-right: solid 1px #ccc;
 }

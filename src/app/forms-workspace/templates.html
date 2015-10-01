@@ -3,9 +3,11 @@
     <section>
         <header></header>
         <div class="elements">
+            <!--
             <div class="element-placeholder">
                 <div><i class="fa fa-plus"></i></div>
             </div>
+            -->
         </div>
         <footer></footer>
     </section>
@@ -13,7 +15,7 @@
 
 <template id="s-forms-field-element-tpl">
     <div class="element element-{{type}}" data-type="{{type}}" data-cmd="select" data-sid="{{sid}}">
-        <div class="element-body">{{element}}</div>
+        <div class="element-body s-input-wrapper">{{element}}</div>
         <div class="elements-actions">
             <div class="elements-action-up" data-cmd="up"><i class="fa fa-arrow-up"></i></div>
             <div class="elements-action-down" data-cmd="down"><i class="fa fa-arrow-down"></i></div>
@@ -23,19 +25,68 @@
 </template>
 
 <template id="s-forms-field-text-tpl">
-    <label>{{label}}</label>
-    <input class="form-control" type="text" />
+    <div class="form-group">
+        <label class="form-label">{{label}}</label>
+        <input class="form-control" type="text" />
+    </div>
 </template>
 
 <template id="s-forms-field-checkbox-tpl">
-    <input class="form-control" type="checkbox" /><label>{{label}}</label>
+    <div class="form-group">
+        <div class="label">{{label}}</div>
+        <div class="checkbox">
+            <div class="icon"></div>
+            <label>
+                <input class="form-control" type="checkbox" />{{label}}
+            </label>
+        </div>
+        <div class="checkbox">
+            <div class="icon"></div>
+            <label>
+                <input class="form-control" type="checkbox" />{{label}}
+            </label>
+        </div>
+        <div class="checkbox">
+            <div class="icon"></div>
+            <label>
+                <input class="form-control" type="checkbox" />{{label}}
+            </label>
+        </div>
+    </div>
 </template>
 
 <template id="s-forms-field-radio-tpl">
-    <input class="form-control" type="radio" /><label>{{label}}</label>
+    <div class="form-group">
+        <div class="label">{{label}}</div>
+        <div class="radio">
+            <div class="icon"></div>
+            <label>
+                <input class="form-control" type="radio" />{{label}}
+            </label>
+        </div>
+        <div class="radio">
+            <div class="icon"></div>
+            <label>
+                <input class="form-control" type="radio" />{{label}}
+            </label>
+        </div>
+        <div class="radio">
+            <div class="icon"></div>
+            <label>
+                <input class="form-control" type="radio" />{{label}}
+            </label>
+        </div>
+    </div>
 </template>
 
 <template id="s-forms-field-select-tpl">
-    <label>{{label}}</label>
-    <select></select>
+    <div class="form-group">
+        <label>{{label}}</label>
+        <select class="form-control">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+            <option>Option 4</option>
+        </select>
+    </div>
 </template>

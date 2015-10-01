@@ -1,48 +1,107 @@
+@blue: #2196F3;
+@text: #646464;
+
 body, html{
     height: 100%;
+    font:500 16px/150% sans-serif;
 }
 body{
-    background: #fff;
+    background: #f2f2f2;
+}
+body, a{
+    color:@text;
 }
 * {
     box-sizing: border-box;
 }
-.btn{
 
-   border-radius: 2px;
+.btn{
    cursor: pointer;
    display: inline-block;
-   font-size: 14px;
+   font-size: 16px;
    font-weight: 400;
    line-height: 1.42857;
-   margin-bottom: 0;
+   margin: 0;
    padding: 6px 12px;
    text-align: center;
    vertical-align: middle;
    white-space: nowrap;
-   background: #fff;
-   border:solid 1px #ccc;
-   color: #333;
+   background: @blue;
+   color: #fff;
    text-decoration: none;
+   transition: all 280ms linear 0s;
+   border:none;
 
    &:hover{
-       border:solid 1px #888;
+       background: #1976D2;
    }
    &:active, &:focus{
        outline:0;
    }
 }
-input{
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #888;
-    display: block;
-    font-size: 14px;
-    height: 34px;
-    padding: 4px 8px;
+.form-group{
+    position: relative;
     width: 100%;
+    margin:16px 0;
+
+    & > .form-control{
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857;
+        background: #fff;
+        border:none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    & > .form-label{
+        color: #888;
+        position: absolute;
+        left: 4px;
+        right: 0px;
+        top:-8px;
+        pointer-events: none;
+        transition: all 150ms ease-out 0s;
+        font-size: 12px;
+    }
+    & > input[type="text"].form-control,
+        textarea.form-control{
+        border: solid 1px #eee;
+        border-width: 0px 0px 1px;
+        font: 400 15px/18px sans-serif;
+        padding: 12px 4px;
+        background:none;
+        width: 100%;
+        display: block;
+
+        &:focus{
+            border-bottom:solid 1px @blue;
+        }
+    }
+    & > select{
+    }
+    .checkbox,
+    .radio{
+        position: relative;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        label{
+            display: inline-block;
+            min-height: 20px;
+            padding-left: 25px;
+            margin-bottom: 0px;
+            cursor: pointer;
+        }
+        input{
+            position: absolute;
+            margin: 4px 0px 0px -25px;
+            line-height: normal;
+            padding: 0px;
+        }
+    }
 }
 s-forms-app{
     height:100%;
@@ -56,31 +115,30 @@ s-forms-app{
 
     h4{
         text-transform: uppercase;
-        border-bottom: solid 1px #ccc;
-        margin:0 0 8px 0;
-        padding:0 0 8px;
+        margin:0 0 8px;
+        padding:16px;
+        color:#fff;
+        background: @blue;
     }
 
     > *{
-        padding:10px;
+        margin:16px;
         align-self: stretch;
-
+        background: #fff;
 
         section{
-
+            padding:16px;
         }
     }
 }
 s-forms-fields{
     flex:0 1 300px;
-    background: #eee;
-    border-right: solid 1px #ccc;
 
     section{
         margin:0 -4px;
 
         .btn{
-            width:135px;
+            width:130px;
             margin:3px 4px;
         }
     }
@@ -104,16 +162,11 @@ s-forms-workspace{
     }
     .element{
         position: relative;
-        margin-bottom: 16px;
+        padding:12px;
 
-        label{
-            display: inline-block;
-            font-weight: 700;
-            max-width: 100%;
-            margin-bottom: 5px;
+        .form-group{
+            margin:0;
         }
-
-
     }
     .element-text{
 
@@ -123,21 +176,26 @@ s-forms-workspace{
         position: absolute;
         top:0;
         right: 0;
-        border:solid 1px #ddd;
 
         div{
             float:left;
-            padding:8px;
+            line-height: 20px;
+            padding:10px 12px;
             background: #fff;
+            border: solid 1px #ddd;
+            vertical-align: middle;
+            cursor: pointer;
+            margin-left:-1px;
         }
     }
-    .element:hover .elements-actions{
-        display:block;
-    }
+    .element:hover {
+        background: #f5f5f5;
 
+        .elements-actions{
+            display:block;
+        }
+    }
 }
 s-forms-settings{
     flex:0 1 300px;
-    background: #eee;
-    border-right: solid 1px #ccc;
 }
