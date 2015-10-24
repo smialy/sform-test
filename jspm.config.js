@@ -15,6 +15,7 @@ System.config({
 
   map: {
     "babel": "npm:babel-core@5.8.25",
+    "sjs-event": "github:smialy/sjs-event@1.0.0",
     "fetch-polyfill": "npm:fetch-polyfill@0.8.1",
     "text": "github:systemjs/plugin-text@0.0.2"
   }

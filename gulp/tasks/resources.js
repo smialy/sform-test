@@ -11,7 +11,6 @@ import flatten from 'gulp-flatten';
 
 import paths from '../paths';
 
-
 gulp.task('less', () => {
   return gulp.src(paths.app.less)
     .pipe(less())

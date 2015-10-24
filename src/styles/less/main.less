@@ -1,15 +1,14 @@
-@blue: #2196F3;
-@text: #646464;
+@import "./variables.less";
 
 body, html{
     height: 100%;
-    font:500 16px/150% sans-serif;
+    font:500 @font-size/150% @font-family;
 }
 body{
-    background: #f2f2f2;
+    background: @body-background;
 }
 body, a{
-    color:@text;
+    color:@body-color;
 }
 * {
     box-sizing: border-box;
@@ -26,19 +25,25 @@ body, a{
    text-align: center;
    vertical-align: middle;
    white-space: nowrap;
-   background: @blue;
-   color: #fff;
+   background: #fff;
+   color: #333;
    text-decoration: none;
    transition: all 280ms linear 0s;
    border:none;
+   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px 0px;
+
 
    &:hover{
-       background: #1976D2;
+       background: #eee;
+       box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 5px 0px;
+
    }
    &:active, &:focus{
        outline:0;
    }
 }
+
+
 .form-group{
     position: relative;
     width: 100%;
@@ -138,8 +143,8 @@ s-forms-fields{
         margin:0 -4px;
 
         .btn{
-            width:130px;
-            margin:3px 4px;
+            width: 120px;
+            margin: 8px 8px;
         }
     }
 }

@@ -1,7 +1,7 @@
 body,
 html {
   height: 100%;
-  font: 500 16px/150% sans-serif;
+  font: 500 16px/150% Helvetica, sans-serif;
 }
 body {
   background: #f2f2f2;
@@ -24,14 +24,16 @@ a {
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  background: #2196F3;
-  color: #fff;
+  background: #fff;
+  color: #333;
   text-decoration: none;
   transition: all 280ms linear 0s;
   border: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px 0px;
 }
 .btn:hover {
-  background: #1976D2;
+  background: #eee;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 5px 0px;
 }
 .btn:active,
 .btn:focus {
@@ -74,7 +76,7 @@ a {
 }
 .form-group > input[type="text"].form-control:focus,
 .form-group textarea.form-control:focus {
-  border-bottom: solid 1px #2196F3;
+  border-bottom: solid 1px #0a91f0;
 }
 .form-group .checkbox,
 .form-group .radio {
@@ -112,7 +114,7 @@ s-forms-app h4 {
   margin: 0 0 8px;
   padding: 16px;
   color: #fff;
-  background: #2196F3;
+  background: #0a91f0;
 }
 s-forms-app > * {
   margin: 16px;
@@ -129,8 +131,8 @@ s-forms-fields section {
   margin: 0 -4px;
 }
 s-forms-fields section .btn {
-  width: 130px;
-  margin: 3px 4px;
+  width: 120px;
+  margin: 8px 8px;
 }
 s-forms-workspace {
   flex: 1 0 auto;

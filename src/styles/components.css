@@ -1,0 +1,59 @@
+s-md-button {
+  position: relative;
+  display: inline-block;
+  padding: 0 6px;
+  margin: 2px 8px;
+  line-height: 38px;
+  min-height: 38px;
+  border-radius: 2px;
+  color: #333;
+  user-select: none;
+  outline: none;
+  border: 0;
+  white-space: nowrap;
+  text-align: center;
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  font-style: inherit;
+  font-variant: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+s-md-button:focus {
+  outline: none;
+}
+s-md-button:hover,
+s-md-button:focus {
+  text-decoration: none;
+}
+s-md-button[disabled] {
+  color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: not-allowed;
+}
+smd-button-group {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+smd-button-group > smd-button {
+  display: block;
+  flex: 1;
+  overflow: hidden;
+  width: 0;
+  border-width: 1px 0px 1px 1px;
+  border-radius: 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+smd-button-group > smd-button:first-child {
+  border-radius: 2px 0px 0px 2px;
+}
+smd-button-group > smd-button:last-child {
+  border-right-width: 1px;
+  border-radius: 0px 2px 2px 0px;
+}

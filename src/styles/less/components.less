@@ -1,0 +1,72 @@
+@import "./variables.less";
+
+s-md-button {
+    position: relative;
+    display: inline-block;
+    padding: @button-padding;
+    margin: @button-margin;
+    line-height: @button-line-height;
+    min-height: @button-line-height;
+
+    border-radius: @button-border-radius;
+    color: @button-color;
+    user-select: none;
+    outline: none;
+    border: 0;
+    white-space: nowrap;
+    text-align: center;
+    background: transparent;
+
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: @font-size;
+    font-style: inherit;
+    font-variant: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:focus {
+    outline: none;
+    }
+
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+
+    &.smd-focused{
+
+    }
+    &[disabled]{
+        color:rgba(0,0,0,0.2);
+        background-color: rgba(0,0,0,0.1);
+        cursor: not-allowed;
+  }
+}
+smd-button-group {
+    display: flex;
+    flex: 1;
+    width: 100%;
+
+    & > smd-button{
+        display: block;
+        flex: 1;
+        overflow: hidden;
+        width: 0;
+
+        border-width: 1px 0px 1px 1px;
+        border-radius: 0;
+
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:first-child {
+            border-radius: 2px 0px 0px 2px;
+        }
+        &:last-child {
+            border-right-width: 1px;
+            border-radius: 0px 2px 2px 0px;
+        }
+    }
+}

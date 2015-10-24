@@ -1,7 +1,7 @@
 import {registerComponent} from './main';
 
 export class Namespace{
-    constructor(prefix, html, sufix='tpl'){
+    constructor(prefix, html='', sufix='tpl'){
         this._prefix = prefix;
         this._html = html;
         this._tpls = {};
