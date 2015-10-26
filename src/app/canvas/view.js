@@ -1,38 +1,44 @@
-import {Templates} from '../core/utils';
+import {Templates, Router} from '../core/utils';
 import TEMPLATES from './templates.html!text';
 
 
 export class CanvasView{
     constructor(model){
+        this._nodes = {};
+
         this.dom = document.createElement('div');
         this.dom.classList.add('sform-canvas');
         this.tpl = new Templates(TEMPLATES, 'sform');
+        this.router = new Router(this.dom);
+        this.router.addRoute('remove', model.removeField, model);
+
         model.on('add-field', this.onAddField, this);
-        this._nodes = {};
+        model.on('remove-field', this.onRemoveField, this);
     }
 
     onAddField(field){
         var type = field.type
-        var sid = genSid();
         var element = this.tpl.format('field-'+type, {
             label:'Label'
         });
         var node = this.tpl.node('field-element', {
             type:type,
-            sid:sid,
+            sid:field.sid,
             element:element
         });
-        this._nodes[sid] = node;
+        this._nodes[field.sid] = node;
         this.dom.appendChild(node);
+    }
+
+    onRemoveField(field){
+        var sid = field.sid;
+        var node = this._nodes[sid];
+        this.dom.removeChild(node);
+        delete this._nodes[sid];
     }
 }
 
-function genSid(){
-    return 's'+(genSid.SID+=1);
-}
-genSid.SID = 0;
-
-function findNodeDataset(root, node, name){
+    function findNodeDataset(root, node, name){
     while(node && root !== node && node.dataset){
         if(name in node.dataset){
             return node.dataset[name];
