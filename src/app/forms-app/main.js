@@ -33,12 +33,12 @@ class FNode{
 
 class BuilderView{
     constructor(){
-        var $main = document.createElement('s-forms-app');
+        var $main = document.createElement('s-form-app');
         document.body.appendChild($main);
 
-        var $fields = document.querySelector('s-forms-fields');
-        var $workspace = document.querySelector('s-forms-workspace');
-        var $settings = document.querySelector('s-forms-settings');
+        var $fields = document.querySelector('s-form-fields');
+        var $workspace = document.querySelector('s-form-workspace');
+        var $settings = document.querySelector('s-form-settings');
 
         $fields.addEventListener('add-field', e => {
             var type = e.detail.data;

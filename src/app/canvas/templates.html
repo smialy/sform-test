@@ -1,19 +1,4 @@
-<template id="s-forms-workspace-tpl">
-    <h4>Form</h4>
-    <section>
-        <header></header>
-        <div class="elements">
-            <!--
-            <div class="element-placeholder">
-                <div><i class="fa fa-plus"></i></div>
-            </div>
-            -->
-        </div>
-        <footer></footer>
-    </section>
-</template>
-
-<template id="s-forms-field-element-tpl">
+<template id="sform-field-element-tpl">
     <div class="element element-{{type}}" data-type="{{type}}" data-cmd="select" data-sid="{{sid}}">
         <div class="element-body s-input-wrapper">{{element}}</div>
         <div class="elements-actions">
@@ -24,14 +9,14 @@
     </div>
 </template>
 
-<template id="s-forms-field-text-tpl">
+<template id="sform-field-text-tpl">
     <div class="form-group">
         <label class="form-label">{{label}}</label>
         <input class="form-control" type="text" />
     </div>
 </template>
 
-<template id="s-forms-field-checkbox-tpl">
+<template id="sform-field-checkbox-tpl">
     <div class="form-group">
         <div class="label">{{label}}</div>
         <div class="checkbox">
@@ -55,7 +40,7 @@
     </div>
 </template>
 
-<template id="s-forms-field-radio-tpl">
+<template id="sform-field-radio-tpl">
     <div class="form-group">
         <div class="label">{{label}}</div>
         <div class="radio">
@@ -79,7 +64,7 @@
     </div>
 </template>
 
-<template id="s-forms-field-select-tpl">
+<template id="sform-field-select-tpl">
     <div class="form-group">
         <label>{{label}}</label>
         <select class="form-control">

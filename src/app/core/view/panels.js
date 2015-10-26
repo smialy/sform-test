@@ -2,8 +2,7 @@ export class PanelContainerView{
     constructor(model, app){
         this.app = app;
         this.dom = document.createElement('div');
-        this.dom.classList.add('sform-panel-container');
-        this.dom.classList.add(model.side);
+        this.dom.classList.add('sform-panel-container', model.name);
         model.on('add-panel', this.onAddPanel, this);
     }
 

@@ -30,7 +30,7 @@ body, a{
    text-decoration: none;
    transition: all 280ms linear 0s;
    border:none;
-   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px 0px;
+   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
 
 
    &:hover{
@@ -108,39 +108,57 @@ body, a{
         }
     }
 }
-s-forms-app{
+.sform{
     height:100%;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: flex-start;
 
     h4{
         text-transform: uppercase;
-        margin:0 0 8px;
+        margin:0;
         padding:16px;
         color:#fff;
         background: @blue;
     }
+}
+
+.sform-workspace,
+.sform-workspace > .center{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+}
+.sform-workspace{
+    flex-direction: column;
+    height: 100%;
 
     > *{
-        margin:16px;
-        align-self: stretch;
-        background: #fff;
+        flex: 0 1 auto;
+    }
+    > .center{
+        flex: 1 1 auto;
+        flex-direction: row;
 
-        section{
-            padding:16px;
+        > .left{
+            width:300px;
+            background: #fff;
+            border-right:solid 1px #ddd;
+        }
+        > .canvas{
+            flex: 1 1 auto;
+        }
+        > .right{
+            border-left:solid 1px #ddd;
+            background: #fff;
+            width: 300px;
         }
     }
-}
-s-forms-fields{
-    flex:0 1 300px;
 
+}
+.sform-fields{
     section{
         margin:0 -4px;
+        padding:8px;
 
         .btn{
             width: 120px;
@@ -148,9 +166,7 @@ s-forms-fields{
         }
     }
 }
-s-forms-workspace{
-    flex:1 0 auto;
-    align-self: stretch;
+.sform-canvas{
 
     .element-placeholder{
         padding:8px;
@@ -200,7 +216,4 @@ s-forms-workspace{
             display:block;
         }
     }
-}
-s-forms-settings{
-    flex:0 1 300px;
 }

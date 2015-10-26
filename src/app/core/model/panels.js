@@ -1,9 +1,9 @@
 import Events from 'sjs-event/events';
 
 export class PanelContainer extends Events{
-    constructor(side){
+    constructor(name){
         super();
-        this.side = side;
+        this.name = name;
         this.panels = [];
     }
 

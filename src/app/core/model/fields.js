@@ -193,10 +193,10 @@ var factory = Object.freeze({
     section: (name, params) => new Section
 });
 
-export function fields(){
+export function fieldsList(){
     return factory;
 }
-export function create(type, name='', params={}){
+export function createField(type, name='', params={}){
     return new factory[type]()
 }
 
