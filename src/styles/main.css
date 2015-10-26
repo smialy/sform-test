@@ -4,7 +4,7 @@ html {
   font: 500 16px/150% Helvetica, sans-serif;
 }
 body {
-  background: #f2f2f2;
+  background: #fff;
 }
 body,
 a {
@@ -189,4 +189,7 @@ a {
 }
 .sform-canvas .element:hover .elements-actions {
   display: block;
+}
+.sform-canvas .element.selected {
+  background: #f5f5f5;
 }

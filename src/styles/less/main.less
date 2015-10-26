@@ -209,11 +209,17 @@ body, a{
             margin-left:-1px;
         }
     }
-    .element:hover {
-        background: #f5f5f5;
+    .element{
+        &:hover {
+            background: #f5f5f5;
 
-        .elements-actions{
-            display:block;
+            .elements-actions{
+                display:block;
+            }
+        }
+        &.selected{
+            background: #f5f5f5;
         }
     }
+
 }

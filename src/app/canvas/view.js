@@ -11,9 +11,13 @@ export class CanvasView{
         this.tpl = new Templates(TEMPLATES, 'sform');
         this.router = new Router(this.dom);
         this.router.addRoute('remove', model.removeField, model);
+        this.router.addRoute('select', model.selectField, model);
 
         model.on('add-field', this.onAddField, this);
         model.on('remove-field', this.onRemoveField, this);
+        model.on('select-field', this.selectField, this);
+        model.on('unselect-field', this.unselectField, this);
+
     }
 
     onAddField(field){
@@ -36,9 +40,20 @@ export class CanvasView{
         this.dom.removeChild(node);
         delete this._nodes[sid];
     }
+
+    selectField(field){
+        var sid = field.sid;
+        var node = this._nodes[sid];
+        node.classList.add('selected');
+    }
+    unselectField(field){
+        var sid = field.sid;
+        var node = this._nodes[sid];
+        node.classList.remove('selected');
+    }
 }
 
-    function findNodeDataset(root, node, name){
+function findNodeDataset(root, node, name){
     while(node && root !== node && node.dataset){
         if(name in node.dataset){
             return node.dataset[name];

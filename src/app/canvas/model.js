@@ -6,6 +6,7 @@ export class Canvas extends Events{
     constructor(app){
         super();
         this.fields = {};
+        this.selected = null;
         app.on('add-field', this.onAddField, this);
     }
     onAddField(type){
@@ -14,10 +15,18 @@ export class Canvas extends Events{
         this.dispatch('add-field', field);
 
     }
-
     removeField(sid){
         var field = this.fields[sid];
         delete this.fields[sid];
         this.dispatch('remove-field', field);
+    }
+    selectField(sid){
+        if(this.selected){
+            this.dispatch('unselect-field', this.selected);
+        }
+        this.selected = this.fields[sid];
+        this.dispatch('select-field', this.selected);
+
+
     }
 }
