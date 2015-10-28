@@ -13,102 +13,14 @@ a {
 * {
   box-sizing: border-box;
 }
-.btn {
-  cursor: pointer;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.42857;
-  margin: 0;
-  padding: 6px 12px;
-  text-align: center;
-  vertical-align: middle;
-  white-space: nowrap;
-  background: #fff;
-  color: #333;
-  text-decoration: none;
-  transition: all 280ms linear 0s;
-  border: none;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
-}
-.btn:hover {
-  background: #eee;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 5px 0px;
-}
-.btn:active,
-.btn:focus {
-  outline: 0;
-}
-.form-group {
-  position: relative;
-  width: 100%;
-  margin: 16px 0;
-}
-.form-group > .form-control {
-  display: block;
-  width: 100%;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857;
-  background: #fff;
-  border: none;
-  border-bottom: 1px solid #ddd;
-}
-.form-group > .form-label {
-  color: #888;
-  position: absolute;
-  left: 4px;
-  right: 0px;
-  top: -8px;
-  pointer-events: none;
-  transition: all 150ms ease-out 0s;
-  font-size: 12px;
-}
-.form-group > input[type="text"].form-control,
-.form-group textarea.form-control {
-  border: solid 1px #eee;
-  border-width: 0px 0px 1px;
-  font: 400 15px/18px sans-serif;
-  padding: 12px 4px;
-  background: none;
-  width: 100%;
-  display: block;
-}
-.form-group > input[type="text"].form-control:focus,
-.form-group textarea.form-control:focus {
-  border-bottom: solid 1px #0a91f0;
-}
-.form-group .checkbox,
-.form-group .radio {
-  position: relative;
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.form-group .checkbox label,
-.form-group .radio label {
-  display: inline-block;
-  min-height: 20px;
-  padding-left: 25px;
-  margin-bottom: 0px;
-  cursor: pointer;
-}
-.form-group .checkbox input,
-.form-group .radio input {
-  position: absolute;
-  margin: 4px 0px 0px -25px;
-  line-height: normal;
-  padding: 0px;
-}
 .sform {
   height: 100%;
 }
 .sform h4 {
   text-transform: uppercase;
   margin: 0;
-  padding: 16px;
-  color: #fff;
-  background: #0a91f0;
+  padding: 8px 16px;
+  color: #000;
 }
 .sform-workspace,
 .sform-workspace > .center {
@@ -121,9 +33,38 @@ a {
 .sform-workspace {
   flex-direction: column;
   height: 100%;
+  background: #F3F3F3;
 }
 .sform-workspace > * {
   flex: 0 1 auto;
+}
+.sform-workspace > .header {
+  color: #fff;
+  background: #0a91f0;
+  height: 50px;
+  line-height: 50px;
+}
+.sform-workspace > .header .logo {
+  font-size: 24px;
+  width: 300px;
+  text-align: center;
+  display: inline-block;
+}
+.sform-workspace > .header .actions {
+  display: inline-block;
+  vertical-align: top;
+}
+.sform-workspace > .header .actions button {
+  padding: 0 8px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  background: transparent;
+}
+.sform-workspace > .header .actions button:hover {
+  background: #0072C6;
 }
 .sform-workspace > .center {
   flex: 1 1 auto;
@@ -131,15 +72,14 @@ a {
 }
 .sform-workspace > .center > .left {
   width: 300px;
-  background: #fff;
   border-right: solid 1px #ddd;
 }
 .sform-workspace > .center > .canvas {
   flex: 1 1 auto;
+  background: #fff;
 }
 .sform-workspace > .center > .right {
   border-left: solid 1px #ddd;
-  background: #fff;
   width: 300px;
 }
 .sform-fields section {
@@ -154,7 +94,7 @@ a {
   padding: 8px;
 }
 .sform-canvas .element-placeholder:hover div {
-  background: #eee;
+  background: #F3F3F3;
 }
 .sform-canvas .element-placeholder div {
   border: dotted 1px #ddd;
@@ -163,7 +103,8 @@ a {
 }
 .sform-canvas .element {
   position: relative;
-  padding: 12px;
+  padding: 8px;
+  margin-bottom: 2px;
 }
 .sform-canvas .element .form-group {
   margin: 0;

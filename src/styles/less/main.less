@@ -14,109 +14,15 @@ body, a{
     box-sizing: border-box;
 }
 
-.btn{
-   cursor: pointer;
-   display: inline-block;
-   font-size: 16px;
-   font-weight: 400;
-   line-height: 1.42857;
-   margin: 0;
-   padding: 6px 12px;
-   text-align: center;
-   vertical-align: middle;
-   white-space: nowrap;
-   background: #fff;
-   color: #333;
-   text-decoration: none;
-   transition: all 280ms linear 0s;
-   border:none;
-   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
 
-
-   &:hover{
-       background: #eee;
-       box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 5px 0px;
-
-   }
-   &:active, &:focus{
-       outline:0;
-   }
-}
-
-
-.form-group{
-    position: relative;
-    width: 100%;
-    margin:16px 0;
-
-    & > .form-control{
-        display: block;
-        width: 100%;
-        padding: 6px 12px;
-        font-size: 14px;
-        line-height: 1.42857;
-        background: #fff;
-        border:none;
-        border-bottom: 1px solid #ddd;
-    }
-
-    & > .form-label{
-        color: #888;
-        position: absolute;
-        left: 4px;
-        right: 0px;
-        top:-8px;
-        pointer-events: none;
-        transition: all 150ms ease-out 0s;
-        font-size: 12px;
-    }
-    & > input[type="text"].form-control,
-        textarea.form-control{
-        border: solid 1px #eee;
-        border-width: 0px 0px 1px;
-        font: 400 15px/18px sans-serif;
-        padding: 12px 4px;
-        background:none;
-        width: 100%;
-        display: block;
-
-        &:focus{
-            border-bottom:solid 1px @blue;
-        }
-    }
-    & > select{
-    }
-    .checkbox,
-    .radio{
-        position: relative;
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 10px;
-
-        label{
-            display: inline-block;
-            min-height: 20px;
-            padding-left: 25px;
-            margin-bottom: 0px;
-            cursor: pointer;
-        }
-        input{
-            position: absolute;
-            margin: 4px 0px 0px -25px;
-            line-height: normal;
-            padding: 0px;
-        }
-    }
-}
 .sform{
     height:100%;
 
     h4{
         text-transform: uppercase;
         margin:0;
-        padding:16px;
-        color:#fff;
-        background: @blue;
+        padding:8px 16px;
+        color:#000;
     }
 }
 
@@ -131,9 +37,40 @@ body, a{
 .sform-workspace{
     flex-direction: column;
     height: 100%;
-
+    background: #F3F3F3;
     > *{
         flex: 0 1 auto;
+    }
+    > .header{
+        color:#fff;
+        background: @blue;
+        height: 50px;
+        line-height: 50px;
+
+        .logo{
+            font-size:24px;
+            width:300px;
+            text-align: center;
+            display: inline-block;
+        }
+        .actions{
+            display: inline-block;
+            vertical-align: top;
+
+            button{
+                padding:0 8px;
+                height: 50px;
+                line-height: 50px;
+                font-size:16px;
+                color:#fff;
+                border:none;
+                background: transparent;
+
+                &:hover{
+                    background: #0072C6;
+                }
+            }
+        }
     }
     > .center{
         flex: 1 1 auto;
@@ -141,15 +78,14 @@ body, a{
 
         > .left{
             width:300px;
-            background: #fff;
             border-right:solid 1px #ddd;
         }
         > .canvas{
             flex: 1 1 auto;
+            background: #fff;
         }
         > .right{
             border-left:solid 1px #ddd;
-            background: #fff;
             width: 300px;
         }
     }
@@ -172,7 +108,7 @@ body, a{
         padding:8px;
 
         &:hover div{
-            background:#eee;
+            background:#F3F3F3;
         }
 
         div{
@@ -183,7 +119,8 @@ body, a{
     }
     .element{
         position: relative;
-        padding:12px;
+        padding:8px;
+        margin-bottom: 2px;
 
         .form-group{
             margin:0;

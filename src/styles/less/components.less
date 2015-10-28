@@ -12,7 +12,7 @@
     color: @button-color;
     user-select: none;
     outline: none;
-    border: 0;
+    border: solid 1px @blue;
     white-space: nowrap;
     text-align: center;
     background: transparent;
@@ -24,8 +24,6 @@
     font-family: inherit;
     text-decoration: none;
     cursor: pointer;
-    transition: all 280ms linear 0s;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
 
     &:hover, &:focus {
       text-decoration: none;
@@ -33,7 +31,6 @@
     }
     &:hover{
         background: #eee;
-        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.6);
     }
 
     &[disabled]{
@@ -66,6 +63,71 @@
         &:last-child {
             border-right-width: 1px;
             border-radius: 0px 2px 2px 0px;
+        }
+    }
+}
+.form-group{
+    position: relative;
+    width: 100%;
+    margin:16px 0;
+
+    & > .form-control{
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857;
+        background: #fff;
+        border:none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    & > .form-label{
+        color: #888;
+        position: absolute;
+        left: 4px;
+        right: 0px;
+        top:-8px;
+        pointer-events: none;
+        transition: all 150ms ease-out 0s;
+        font-size: 12px;
+    }
+    & > input[type="text"].form-control,
+        textarea.form-control{
+        border: solid 1px #eee;
+        border-width: 0px 0px 1px;
+        font: 400 15px/18px sans-serif;
+        padding: 12px 4px 8px 4px;
+        background:none;
+        width: 100%;
+        display: block;
+        outline: none;
+
+        &:focus{
+            border-bottom:solid 1px @blue;
+        }
+    }
+    & > select{
+    }
+    .checkbox,
+    .radio{
+        position: relative;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        label{
+            display: inline-block;
+            min-height: 20px;
+            padding-left: 25px;
+            margin-bottom: 0px;
+            cursor: pointer;
+        }
+        input{
+            position: absolute;
+            margin: 4px 0px 0px -25px;
+            line-height: normal;
+            padding: 0px;
         }
     }
 }
