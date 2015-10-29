@@ -23,6 +23,7 @@ class Field{
 
         params = Object.assign({
           id:null,
+          name:'',
           label:'',
           help:'',
           comment:'',
@@ -33,6 +34,7 @@ class Field{
         }, params);
 
         this.id = params.id;
+        this.name = params.name;
         this.label = params.label;
         this.help = params.help;
         this.comment = params.comment;

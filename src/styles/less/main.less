@@ -83,6 +83,7 @@ body, a{
         > .canvas{
             flex: 1 1 auto;
             background: #fff;
+            position: relative;
         }
         > .right{
             border-left:solid 1px #ddd;
@@ -103,6 +104,12 @@ body, a{
     }
 }
 .sform-canvas{
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 
     .element-placeholder{
         padding:8px;
@@ -120,7 +127,7 @@ body, a{
     .element{
         position: relative;
         padding:8px;
-        margin-bottom: 2px;
+        border-bottom:solid 1px #ddd;
 
         .form-group{
             margin:0;

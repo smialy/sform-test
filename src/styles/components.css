@@ -27,7 +27,7 @@
   outline: 0;
 }
 .btn:hover {
-  background: #eee;
+  background: #ccc;
 }
 .btn[disabled] {
   color: rgba(0, 0, 0, 0.2);

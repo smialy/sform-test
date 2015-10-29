@@ -9,17 +9,28 @@ export class CanvasView{
         this.dom = document.createElement('div');
         this.dom.classList.add('sform-canvas');
         this.tpl = new Templates(TEMPLATES, 'sform');
+
         this.router = new Router(this.dom);
         this.router.addRoute('remove', model.removeField, model);
         this.router.addRoute('select', model.selectField, model);
+        this.router.addRoute('up', model.upField, model);
+        this.router.addRoute('down', model.downField, model);
 
         model.on('add-field', this.onAddField, this);
         model.on('remove-field', this.onRemoveField, this);
-        model.on('select-field', this.selectField, this);
-        model.on('unselect-field', this.unselectField, this);
-
+        model.on('select-field', this.onSelectField, this);
+        model.on('unselect-field', this.onUnselectField, this);
+        model.on('update', this.onUpdate, this);
     }
-
+    onUpdate(field){
+        var node = this._nodes[field.sid];
+        var body = node.querySelector('.element-body');
+        var html = this.tpl.format('field-'+field.type, {
+            label:field.label,
+            name:field.name
+        });
+        body.innerHTML = html;
+    }
     onAddField(field){
         var type = field.type
         var element = this.tpl.format('field-'+type, {
@@ -41,12 +52,12 @@ export class CanvasView{
         delete this._nodes[sid];
     }
 
-    selectField(field){
+    onSelectField(field){
         var sid = field.sid;
         var node = this._nodes[sid];
         node.classList.add('selected');
     }
-    unselectField(field){
+    onUnselectField(field){
         var sid = field.sid;
         var node = this._nodes[sid];
         node.classList.remove('selected');

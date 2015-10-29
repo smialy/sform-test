@@ -77,6 +77,7 @@ a {
 .sform-workspace > .center > .canvas {
   flex: 1 1 auto;
   background: #fff;
+  position: relative;
 }
 .sform-workspace > .center > .right {
   border-left: solid 1px #ddd;
@@ -89,6 +90,14 @@ a {
 .sform-fields section .btn {
   width: 120px;
   margin: 8px 8px;
+}
+.sform-canvas {
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .sform-canvas .element-placeholder {
   padding: 8px;
@@ -104,7 +113,7 @@ a {
 .sform-canvas .element {
   position: relative;
   padding: 8px;
-  margin-bottom: 2px;
+  border-bottom: solid 1px #ddd;
 }
 .sform-canvas .element .form-group {
   margin: 0;
