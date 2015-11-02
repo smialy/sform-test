@@ -4,7 +4,7 @@ html {
   font: 500 16px/150% Helvetica, sans-serif;
 }
 body {
-  background: #fff;
+  background: #f3f3f3;
 }
 body,
 a {
@@ -16,14 +16,8 @@ a {
 .sform {
   height: 100%;
 }
-.sform h4 {
-  text-transform: uppercase;
-  margin: 0;
-  padding: 8px 16px;
-  color: #000;
-}
 .sform-workspace,
-.sform-workspace > .center {
+.sform-workspace > .body {
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
@@ -33,7 +27,6 @@ a {
 .sform-workspace {
   flex-direction: column;
   height: 100%;
-  background: #F3F3F3;
 }
 .sform-workspace > * {
   flex: 0 1 auto;
@@ -66,32 +59,35 @@ a {
 .sform-workspace > .header .actions button:hover {
   background: #0072C6;
 }
-.sform-workspace > .center {
+.sform-workspace > .body {
   flex: 1 1 auto;
   flex-direction: row;
 }
-.sform-workspace > .center > .left {
+.sform-workspace > .body > .left {
   width: 300px;
   border-right: solid 1px #ddd;
 }
-.sform-workspace > .center > .canvas {
+.sform-workspace > .body > .center {
   flex: 1 1 auto;
   background: #fff;
   position: relative;
 }
-.sform-workspace > .center > .right {
+.sform-workspace > .body > .right {
   border-left: solid 1px #ddd;
   width: 300px;
 }
-.sform-fields section {
-  margin: 0 -4px;
-  padding: 8px;
+.sform-panels.hidden {
+  display: none;
 }
-.sform-fields section .btn {
-  width: 120px;
-  margin: 8px 8px;
+.sform-editor-scheme {
+  width: 1000px;
+  margin: 0 auto;
 }
-.sform-canvas {
+.sform-editor-scheme-page {
+  margin: 0 0 16px;
+  background: #fff;
+}
+.sform-editor {
   overflow: auto;
   position: absolute;
   top: 0;
@@ -99,32 +95,32 @@ a {
   bottom: 0;
   right: 0;
 }
-.sform-canvas .element-placeholder {
+.sform-editor .element-placeholder {
   padding: 8px;
 }
-.sform-canvas .element-placeholder:hover div {
+.sform-editor .element-placeholder:hover div {
   background: #F3F3F3;
 }
-.sform-canvas .element-placeholder div {
+.sform-editor .element-placeholder div {
   border: dotted 1px #ddd;
   padding: 8px;
   text-align: center;
 }
-.sform-canvas .element {
+.sform-editor .element {
   position: relative;
   padding: 8px;
   border-bottom: solid 1px #ddd;
 }
-.sform-canvas .element .form-group {
+.sform-editor .element .form-group {
   margin: 0;
 }
-.sform-canvas .elements-actions {
+.sform-editor .elements-actions {
   display: none;
   position: absolute;
   top: 0;
   right: 0;
 }
-.sform-canvas .elements-actions div {
+.sform-editor .elements-actions div {
   float: left;
   line-height: 20px;
   padding: 10px 12px;
@@ -134,12 +130,12 @@ a {
   cursor: pointer;
   margin-left: -1px;
 }
-.sform-canvas .element:hover {
+.sform-editor .element:hover {
   background: #f5f5f5;
 }
-.sform-canvas .element:hover .elements-actions {
+.sform-editor .element:hover .elements-actions {
   display: block;
 }
-.sform-canvas .element.selected {
+.sform-editor .element.selected {
   background: #f5f5f5;
 }

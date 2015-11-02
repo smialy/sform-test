@@ -1,11 +1,45 @@
 import {Events} from 'sjs-event';
-import {createField} from '../core/model/fields';
+import * as fields from '../core/model/fields';
 
+export class FormScheme extends Events{
+    constructor(){
+        super();
+        this._pages = [];
+    }
 
-export class Canvas extends Events{
+    addPage(page){
+        this._pages.push(page);
+        this.dispatch('add.page', page);
+    }
+    removePage(page){
+        this._pages.remove(page);
+        this.dispatch('remove.page', page);
+    }
+
+    pages(){
+        return this._pages.concat();
+    }
+}
+
+export class FormPage extends Events{
+    constructor(params){
+        super('page', name, params);
+    }
+}
+
+export class FormEntry extends Events{
+
+}
+
+export class Editor extends Events{
     constructor(app){
         super();
         this.app = app;
+
+        this.form = new FormScheme();
+        this.form.addPage(new FormPage(1));
+        this.form.addPage(new FormPage(2));
+
         this.fields = {};
         this.selected = null;
         app.on('add-field', this.onAddField, this);

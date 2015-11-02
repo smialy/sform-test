@@ -7,6 +7,12 @@ export default class ViewRegistry{
     }
 
     addViewProvider(model, createView){
+        if(!model){
+            throw new Error('Incorect view model');
+        }
+        if(!createView){
+            throw new Error('Incorect view creator');
+        }
         this.providers.push([model, createView]);
     }
 

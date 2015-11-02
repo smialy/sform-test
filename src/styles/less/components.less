@@ -6,31 +6,30 @@
     padding: @button-padding;
     margin: @button-margin;
     line-height: @button-line-height;
-    min-height: @button-line-height;
+    min-width: @button-min-width;
 
     border-radius: @button-border-radius;
     color: @button-color;
     user-select: none;
     outline: none;
-    border: solid 1px @blue;
     white-space: nowrap;
     text-align: center;
-    background: transparent;
+    background: @button-background;
 
-    font-weight: 500;
     font-size: @font-size;
     font-style: inherit;
     font-variant: inherit;
     font-family: inherit;
     text-decoration: none;
     cursor: pointer;
+    border: solid 1px @button-border-color;
 
     &:hover, &:focus {
       text-decoration: none;
+      border: solid 1px @button-border-color;
       outline:0;
     }
     &:hover{
-        background: #ccc;
     }
 
     &[disabled]{
@@ -38,6 +37,10 @@
         background-color: rgba(0,0,0,0.1);
         cursor: not-allowed;
   }
+}
+.btn-primary{
+    color: #fff;
+    background: @blue;
 }
 .button-group {
     display: flex;

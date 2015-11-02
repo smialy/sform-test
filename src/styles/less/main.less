@@ -14,20 +14,12 @@ body, a{
     box-sizing: border-box;
 }
 
-
 .sform{
     height:100%;
-
-    h4{
-        text-transform: uppercase;
-        margin:0;
-        padding:8px 16px;
-        color:#000;
-    }
 }
 
 .sform-workspace,
-.sform-workspace > .center{
+.sform-workspace > .body{
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -37,7 +29,6 @@ body, a{
 .sform-workspace{
     flex-direction: column;
     height: 100%;
-    background: #F3F3F3;
     > *{
         flex: 0 1 auto;
     }
@@ -72,7 +63,7 @@ body, a{
             }
         }
     }
-    > .center{
+    > .body{
         flex: 1 1 auto;
         flex-direction: row;
 
@@ -80,7 +71,7 @@ body, a{
             width:300px;
             border-right:solid 1px #ddd;
         }
-        > .canvas{
+        > .center{
             flex: 1 1 auto;
             background: #fff;
             position: relative;
@@ -92,18 +83,22 @@ body, a{
     }
 
 }
-.sform-fields{
-    section{
-        margin:0 -4px;
-        padding:8px;
-
-        .btn{
-            width: 120px;
-            margin: 8px 8px;
-        }
+.sform-panels{
+    &.hidden{
+        display: none;
     }
 }
-.sform-canvas{
+.sform-editor-scheme{
+    width:1000px;
+    margin:0 auto;
+}
+.sform-editor-scheme-page{
+    margin:0 0 16px;
+    background: #fff;
+}
+
+
+.sform-editor{
     overflow: auto;
     position: absolute;
     top: 0;

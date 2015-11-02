@@ -1,14 +1,53 @@
 import {Templates, Router} from '../core/utils';
 import TEMPLATES from './templates.html!text';
 
+var tpl = new Templates(TEMPLATES, 'sform');
 
-export class CanvasView{
-    constructor(model){
+export class FormSchemeView{
+    constructor(model, views){
+        this.dom = document.createElement('div');
+        this.dom.classList.add('sform-editor-scheme');
+        this.views = views;
+        model.on('add.page', this.onAddPage, this);
+        model.pages().forEach(page => {
+            this.onAddPage(page);
+        });
+    }
+    onAddPage(page){
+        var pageView = this.views.getView(page);
+        this.dom.appendChild(pageView.dom);
+    }
+}
+
+export class FormPageView{
+    constructor(model, views){
+        this.dom = document.createElement('div');
+        this.dom.classList.add('sform-editor-scheme-page');
+        var html = tpl.format('field-page', {
+            number:1
+        });
+        this.dom.innerHTML = html;
+    }
+}
+export class FormEntryView{
+    constructor(model, views){
+        this.dom = document.createElement('div');
+        this.dom.classList.add('sform-editor-scheme-entry');
+    }
+}
+
+
+export class EditorView{
+    constructor(model, views){
         this._nodes = {};
 
         this.dom = document.createElement('div');
-        this.dom.classList.add('sform-canvas');
-        this.tpl = new Templates(TEMPLATES, 'sform');
+        this.dom.classList.add('sform-editor');
+
+        var formView = views.getView(model.form);
+        this.dom.appendChild(formView.dom);
+
+
 
         this.router = new Router(this.dom);
         this.router.addRoute('remove', model.removeField, model);
@@ -25,7 +64,7 @@ export class CanvasView{
     onUpdate(field){
         var node = this._nodes[field.sid];
         var body = node.querySelector('.element-body');
-        var html = this.tpl.format('field-'+field.type, {
+        var html = tpl.format('field-'+field.type, {
             label:field.label,
             name:field.name
         });
@@ -33,10 +72,10 @@ export class CanvasView{
     }
     onAddField(field){
         var type = field.type
-        var element = this.tpl.format('field-'+type, {
+        var element = tpl.format('field-'+type, {
             label:'Label'
         });
-        var node = this.tpl.node('field-element', {
+        var node = tpl.node('field-element', {
             type:type,
             sid:field.sid,
             element:element

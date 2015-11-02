@@ -1,20 +1,22 @@
 import Events from 'sjs-event/events';
-import {PanelContainer, Panel} from './panels'
+import {Panels, Panel} from './panels'
 
 export default class Workspace extends Events{
     constructor(){
         super();
         this.panels = {
-            header: new PanelContainer('header'),
-            left: new PanelContainer('left'),
-            canvas: new PanelContainer('canvas'),
-            right: new PanelContainer('right'),
-            footer: new PanelContainer('footer'),
-            modal: new PanelContainer('modal')
+            header: new Panels('header'),
+            left: new Panels('left'),
+            center: new Panels('center'),
+            right: new Panels('right'),
+            footer: new Panels('footer'),
+            modal: new Panels('modal')
         }
     }
     addPanel(side, item, priority=0){
-        this.panels[side].addPanel(new Panel(item, priority))
+        var panel = this.panels[side];
+        panel.show();
+        panel.addPanel(new Panel(item, priority))
     }
     addHeaderPanel(item, priority=0){
         this.addPanel('header', item, priority);
@@ -22,8 +24,8 @@ export default class Workspace extends Events{
     addLeftPanel(item, priority=0){
         this.addPanel('left', item, priority);
     }
-    addCanvasPanel(item, priority=0){
-        this.addPanel('canvas', item, priority);
+    addCenterPanel(item, priority=0){
+        this.addPanel('center', item, priority);
     }
     addRightPanel(item, priority=0){
         this.addPanel('right', item, priority);

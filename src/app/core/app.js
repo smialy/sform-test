@@ -2,8 +2,8 @@ import {Events} from 'sjs-event';
 
 import ViewRegistry from './view/registry';
 import WorkspaceView from './view/workspace';
-import {PanelView, PanelContainerView} from './view/panels';
-import {Panel, PanelContainer} from './model/panels';
+import {PanelView, PanelsView} from './view/panels';
+import {Panel, Panels} from './model/panels';
 import Workspace from './model/workspace';
 
 
@@ -27,8 +27,8 @@ export default class SFormApp extends Events{
         this.views.addViewProvider(Workspace, (model, app) => {
             return new WorkspaceView(model, app);
         });
-        this.views.addViewProvider(PanelContainer, (model, app) => {
-            return new PanelContainerView(model, app);
+        this.views.addViewProvider(Panels, (model, app) => {
+            return new PanelsView(model, app);
         });
         this.views.addViewProvider(Panel, (model, app) => {
             return new PanelView(model, app);

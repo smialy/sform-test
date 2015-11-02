@@ -1,6 +1,6 @@
 import Events from 'sjs-event/events';
 
-export class PanelContainer extends Events{
+export class Panels extends Events{
     constructor(name){
         super();
         this.name = name;
@@ -10,6 +10,13 @@ export class PanelContainer extends Events{
     addPanel(panel){
         this.panels.push(panel);
         this.dispatch('add-panel', panel);
+    }
+
+    show(){
+        this.dispatch('show');
+    }
+    hide(panel){
+        this.dispatch('hide');
     }
 }
 
