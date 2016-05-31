@@ -11,6 +11,8 @@ export default class main {
       var app = new SFormApp(document.body);
       initNav(app);
       initEditor(app);
+      initFields(app);
+      initSettings(app)
   }
 
 

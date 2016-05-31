@@ -46,7 +46,7 @@ export class Editor extends Events{
         app.on('update-field', this.onUpdateField, this);
     }
     onAddField(type){
-        var field = createField(type);
+        var field = fields.createField(type);
         this.fields[field.sid] = field;
         this.dispatch('add-field', field);
 
